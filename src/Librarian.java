@@ -55,25 +55,25 @@ public class Librarian {
             return;
         }
 
-        //check the number of books the nonStudent has borrowed and not returned
+        //kontrollera antalet böcker som icke-studenten har lånat och inte returnerat
         int numBookBorrowedANdNotReturned = nonStudent.bookBorrowed;
 
-        // if the number of books borrowed and not return is equal to 1
+        // om antalet böcker som lånats ut och inte returneras är lika med 1
         if(numBookBorrowedANdNotReturned >= 1){
-            //decline borrow request
+            //avslå låneförfrågan
             System.out.println("Lending request denied. You have 1 unreturned books.");
         }
         else{
-            //else get the number of books he can borrow by subtracting 1 from his booksBorrowed variable
+            //ELSE få antalet böcker han kan låna genom att dra 1 från hans booksBorrowed variabel
             int numBooksYouCanBorrow = 1 - numBookBorrowedANdNotReturned;
             //if the number of books he can borrow is less than the number of books requested
             if(numBooksYouCanBorrow < numberOfBooks){
-                //decline the borrow request
+                //avslå låneförfrågan
                 System.out.println("The number of books you want to borrow is more than what you can borrow");
                 return;
             }
             else{
-                // else get the booksBorrowed value and add numberOfBooks to it
+                //få booksBorrowed värde och lägg till numberOfBooks till det
                 nonStudent.bookBorrowed = nonStudent.bookBorrowed + numberOfBooks;
                 System.out.println("Lending request successful, you have been lended " + numberOfBooks + "books.");
 
@@ -95,8 +95,8 @@ public class Librarian {
             System.out.println("Lending request denied. No valid Student ID");
             return;
         } else {
-            //check if the booksBorrowed value is greater than or equal to
-            //the number of books he wants to return
+            //kontrollera om booksBorrowed är större än eller lika med
+            //antalet böcker han vill returnera
             if(student.booksBorrowed >= numberOfBooks) {
                 // få booksBorrowed värde och dra av numberOfBooks från det
                 student.booksBorrowed = student.booksBorrowed - numberOfBooks;

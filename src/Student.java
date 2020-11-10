@@ -26,6 +26,7 @@ public class Student {
      * @param numberOfBooks The number of books student wants to borrow
      */
     public void borrowBook(Librarian librarian, int numberOfBooks){
+
         //anropar bibliotekarie metoden lendingRequestForBook(Student, int)
         librarian.lendingRequestForBook(this, numberOfBooks);
 

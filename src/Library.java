@@ -38,7 +38,7 @@ public class Library {
                     System.out.println("1. Borrow book");
                     System.out.println("2. Return book");
                     System.out.println("3. Change student type");
-                    System.out.println("4. Exit applicat ion");
+                    System.out.println("4. Exit application");
                     // Användaren väljer ett menyalternativ
                     menuChosen = scanner.nextInt();
                     // om den valda menyn är 1 vill användaren låna
