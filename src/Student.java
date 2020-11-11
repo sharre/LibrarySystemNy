@@ -42,11 +42,17 @@ public class Student {
         //anropar bibliotekarie metoden returnRequestForBook(Student, int)
         librarian.returnRequestForBook(this, numberOfBooks);
     }
-
+    /**
+     * this will update first name to the new student
+     * @param newFirstName Update new lastname
+     */
     public void updateFirstName(String newFirstName) {
         this.firstName = newFirstName;
     }
-
+    /**
+     * this will update last name to the new student
+     * @param newLastName Update new lastName
+     */
     public void updateLastName(String newLastName) {
         this.lastName = newLastName;
     }
@@ -59,5 +65,6 @@ public class Student {
                 ", lastName='" + lastName + '\'' +
                 ", booksBorrowed=" + booksBorrowed +
                 '}';
+
     }
 }
