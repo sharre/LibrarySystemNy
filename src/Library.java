@@ -13,22 +13,21 @@ public class Library {
                 // Skapa bibliotekarien
                 Librarian librarian = new Librarian();
                 // Skapa en student
-                Student student = new Student("90887", "Ilhan", "Daahir");
-                NonStudent nonStudent = new NonStudent("960503","Sharre", "Daahir" );
+                Student student;
+                // NonStudent nonStudent = new NonStudent("960503","Sharre", "Daahir" );
                 // Skannerobjektet som läser inmatning från användaren
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("Welcome to Nackademin library");
-                System.out.println("Are you a student or non-student? Type 1 for Student, type 2 for Non-Student");
-                // Läs in studenttypen från användaren
-                int studentType = scanner.nextInt();
-                // om användaren är student får han veta att han kan låna max 3 böcker åt gången
-                // om användaren är nonstudent får han veta att han kan låna max 1 bok åt gången
-                if(studentType == 1){
-                    System.out.println("Note: You are allowed to borrow a maximum of 3 books at a time");
-                }
-                else if(studentType == 2){
-                    System.out.println("Note: You are allowed to borrow a maximum of 1 book at a time");
-                }
+
+                System.out.println("Enter your student ID");
+                String studentID = scanner.nextLine();
+                System.out.println("Enter your first name");
+                String firstName = scanner.nextLine();
+                System.out.println("Enter your last name");
+                String lastName = scanner.nextLine();
+                student = new Student(studentID, firstName, lastName);
+                System.out.println("Good work, your profile has been created");
+
                 // Dags att sköta studenternas önskemål
                 int menuChosen = 0;
                 // Denna while loop fortsätter så länge användaren inte skrev in 4 som menyalternativ
@@ -37,7 +36,7 @@ public class Library {
                     System.out.println("What would you like to do?");
                     System.out.println("1. Borrow book");
                     System.out.println("2. Return book");
-                    System.out.println("3. Change student type");
+                    System.out.println("3. Update your profile");
                     System.out.println("4. Exit application");
                     // Användaren väljer ett menyalternativ
                     menuChosen = scanner.nextInt();
@@ -45,33 +44,33 @@ public class Library {
                     if(menuChosen == 1){
                         System.out.println("How many books do you want to borrow");
                         int numBookToBorrow = scanner.nextInt();
-                        if(studentType == 1) {
-                            student.borrowBook(librarian, numBookToBorrow);
-                        }
-                        else if(studentType == 2) {
-                            nonStudent.borrowBook(librarian, numBookToBorrow);
-                        }
+                        student.borrowBook(librarian, numBookToBorrow);
                     }
                     // om den valda menyn är 2 vill användaren återvända
                     else if(menuChosen == 2){
                         System.out.println("How many books do you want to return");
                         int numBookToReturn = scanner.nextInt();
-                        if(studentType == 1) {
-                            student.returnBook(librarian, numBookToReturn);
-                        }
-                        else if(studentType == 2) {
-                            nonStudent.returnBook(librarian, numBookToReturn);
-                        }
+                        student.returnBook(librarian, numBookToReturn);
                     }
                     // om den valda menyn är 3 vill användaren ändra status
                     else if(menuChosen == 3){
-                        System.out.println("Are you a student or non-student? Type 1 for Student, type 2 for Non-Student");
-                        studentType = scanner.nextInt();
-                        if(studentType == 1){
-                            System.out.println("Note: You are allowed to borrow a maximum of 3 books at a time");
+                        System.out.println("Type 1 to change your first name, type 2 to change your last name");
+                        int nameToChange = scanner.nextInt();
+                        if(nameToChange == 1){
+                            System.out.println("Type in your new first name");
+                            scanner.nextLine();
+                            String newFirstName = scanner.nextLine();
+                            student.updateFirstName(newFirstName);
+                            System.out.println("This is your updated profile");
+                            System.out.println(student);
                         }
-                        else if(studentType == 2){
-                            System.out.println("Note: You are allowed to borrow a maximum of 1 book at a time");
+                        else if(nameToChange == 2){
+                            System.out.println("Type in your new ¨last name");
+                            scanner.nextLine();
+                            String newLastName = scanner.nextLine();
+                            student.updateLastName(newLastName);
+                            System.out.println("This is your updated profile");
+                            System.out.println(student);
                         }
                     }
                 }

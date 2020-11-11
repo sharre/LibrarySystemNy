@@ -7,6 +7,7 @@ public class Student {
     String lastName;
     int booksBorrowed;
 
+
     /**
      * The constructor for Student
      * @param studentID The student ID used to identify the student
@@ -40,5 +41,23 @@ public class Student {
     public void returnBook(Librarian librarian, int numberOfBooks){
         //anropar bibliotekarie metoden returnRequestForBook(Student, int)
         librarian.returnRequestForBook(this, numberOfBooks);
+    }
+
+    public void updateFirstName(String newFirstName) {
+        this.firstName = newFirstName;
+    }
+
+    public void updateLastName(String newLastName) {
+        this.lastName = newLastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "studentID='" + studentID + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", booksBorrowed=" + booksBorrowed +
+                '}';
     }
 }
